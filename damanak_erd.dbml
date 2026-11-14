@@ -1,0 +1,100 @@
+// Damanak (ضمانك) — ERD for the Room database
+// Types are the Kotlin types used in the Room entities.
+// Paste into https://dbdiagram.io
+
+enum ReminderType {
+  EXPIRY
+  MAINTENANCE
+}
+
+enum TransferStatus {
+  PENDING
+  ACCEPTED
+  CANCELLED
+}
+
+Table users {
+  userId String [pk, not null, note: 'Firebase UID']
+  fullName String [not null]
+  email String [not null, unique]
+  language String [not null, default: 'ar']
+  lastSyncAt Long
+}
+
+Table stores {
+  storeId Long [pk, increment, not null]
+  name String [not null, unique]
+  phone String
+  city String
+}
+
+Table warranties {
+  warrantyId Long [pk, increment, not null]
+  userId String [not null]
+  storeId Long
+  productName String [not null]
+  category String [not null]
+  serialNumber String
+  purchaseDate Long [not null]
+  expiryDate Long [not null]
+  price Double
+  reminderEnabled Boolean [not null, default: true]
+  isSynced Boolean [not null, default: false]
+}
+
+Table receipts {
+  receiptId Long [pk, increment, not null]
+  warrantyId Long [not null]
+  imageUri String [not null]
+  remoteUrl String [note: 'Firebase Storage URL']
+  ocrText String
+  totalAmount Double
+}
+
+Table service_visits {
+  visitId Long [pk, increment, not null]
+  warrantyId Long [not null]
+  visitDate Long [not null]
+  description String [not null]
+  isCovered Boolean [not null]
+  cost Double
+}
+
+Table maintenance_tasks {
+  taskId Long [pk, increment, not null]
+  warrantyId Long [not null]
+  title String [not null]
+  intervalDays Int [not null]
+  nextDueDate Long [not null]
+}
+
+Table reminders {
+  reminderId Long [pk, increment, not null]
+  type ReminderType [not null]
+  warrantyId Long [note: 'Set only when type = EXPIRY']
+  taskId Long [note: 'Set only when type = MAINTENANCE']
+  triggerDate Long [not null]
+  isRead Boolean [not null, default: false]
+  Note: 'Exactly one of warrantyId / taskId is set, depending on type'
+}
+
+Table ownership_transfers {
+  transferId Long [pk, increment, not null]
+  warrantyId Long [not null]
+  fromUserId String [not null]
+  toUserId String [note: 'Receiver UID, filled when accepted']
+  transferCode String [not null, unique, note: 'QR token']
+  status TransferStatus [not null, default: 'PENDING']
+  createdAt Long [not null]
+  expiresAt Long [not null]
+}
+
+Ref: warranties.userId > users.userId [delete: cascade]
+Ref: warranties.storeId > stores.storeId [delete: set null]
+Ref: receipts.warrantyId > warranties.warrantyId [delete: cascade]
+Ref: service_visits.warrantyId > warranties.warrantyId [delete: cascade]
+Ref: maintenance_tasks.warrantyId > warranties.warrantyId [delete: cascade]
+Ref: reminders.warrantyId > warranties.warrantyId [delete: cascade]
+Ref: reminders.taskId > maintenance_tasks.taskId [delete: cascade]
+Ref: ownership_transfers.warrantyId > warranties.warrantyId [delete: cascade]
+Ref: ownership_transfers.fromUserId > users.userId [delete: cascade]
