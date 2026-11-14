@@ -98,6 +98,16 @@ Individual contribution is tracked through commit history, pull requests, and as
 
 ---
 
+## Documentation
+
+| Milestone | File |
+| --- | --- |
+| M2 | [Architecture](docs/architecture.md) · [Architecture diagram](docs/architecture.png) · [Navigation map](docs/navigation-map.png) · [Style guide](docs/style-guide.md) · [Wireframes](docs/wireframes/) · [Figma prototype](docs/figma.md) |
+| M3-A | [Database design](docs/database/) |
+| All | [AI Use Log](AI_USE_LOG.md) |
+
+---
+
 ## Milestones
 
 | Milestone | Focus | Target |
