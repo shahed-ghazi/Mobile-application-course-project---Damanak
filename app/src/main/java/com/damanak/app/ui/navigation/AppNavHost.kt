@@ -11,6 +11,9 @@ import com.damanak.app.ui.components.PlaceholderScreen
 import com.damanak.app.ui.onboarding.OnboardingScreen
 import com.damanak.app.ui.splash.SplashScreen
 import com.damanak.app.ui.transfer.TransferScreen
+import com.damanak.app.ui.auth.SignInScreen
+import com.damanak.app.ui.auth.SignUpScreen
+import com.damanak.app.ui.auth.PasswordResetScreen
 
 @Composable
 fun AppNavHost(
@@ -43,7 +46,30 @@ fun AppNavHost(
         }
 
         composable(Routes.AUTH) {
-            PlaceholderScreen(title = Routes.AUTH)
+            var isSignUp by remember { mutableStateOf(false) }
+
+            if (isSignUp) {
+                SignUpScreen(
+                    onSignUpSuccess = {
+                        navController.navigate(Routes.HOME) {
+                            popUpTo(Routes.AUTH) { inclusive = true }
+                        }
+                    },
+                    onNavigateToSignIn = { isSignUp = false }
+                )
+            } else {
+                SignInScreen(
+                    onSignInSuccess = {
+                        navController.navigate(Routes.HOME) {
+                            popUpTo(Routes.AUTH) { inclusive = true }
+                        }
+                    },
+                    onNavigateToSignUp = { isSignUp = true },
+                    onNavigateToForgotPassword = {
+                        navController.navigate(Routes.RESET_PASSWORD)
+                    }
+                )
+            }
         }
 
         composable(Routes.HOME) {
@@ -78,9 +104,10 @@ fun AppNavHost(
         }
 
         composable(Routes.RESET_PASSWORD) {
-            PlaceholderScreen(title = Routes.RESET_PASSWORD)
+            PasswordResetScreen(
+                onNavigateBack = { navController.popBackStack() }
+            )
         }
-
         composable(Routes.MAINTENANCE_LOG) { backStackEntry ->
             val productId = backStackEntry.arguments?.getString("productId") ?: ""
             PlaceholderScreen(title = "Maintenance Log: $productId")
