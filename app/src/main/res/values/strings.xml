@@ -1,0 +1,51 @@
+<resources>
+    <string name="app_name">ضمانك</string>
+    <string name="splash_title">ضمانك</string>
+    <string name="splash_subtitle">ضماناتك كلها في مكان واحد</string>
+
+    <string name="onboarding_page1_title">لا تضيّع ضمان بعد اليوم</string>
+    <string name="onboarding_page1_description">صوّر الفاتورة، وضمانك يتابع تاريخ الانتهاء وينبهك قبل لا يخلص.</string>
+
+    <!-- TODO: Placeholder strings for onboarding pages 2 and 3 -->
+    <string name="onboarding_page2_title">تابع كل أجهزتك</string>
+    <string name="onboarding_page2_description">سجّل تفاصيل الأجهزة ووثائق الضمان بسهولة.</string>
+    <string name="onboarding_page3_title">تنبيهات قبل الانتهاء</string>
+    <string name="onboarding_page3_description">احصل على إشعارات تذكرك بموعد انتهاء الضمان.</string>
+
+    <string name="onboarding_chip_active">ساري</string>
+    <string name="onboarding_button_next">التالي</string>
+    <string name="onboarding_button_start">ابدأ</string>
+    <string name="onboarding_button_skip">تخطي</string>
+
+    <!-- Header -->
+    <string name="back_button_desc">رجوع</string>
+
+    <!-- Transfer Screen -->
+    <string name="transfer_title">نقل الملكية الذكي</string>
+    <string name="transfer_subtitle">انقل الضمان مع الجهاز إلى مالكه الجديد</string>
+    <string name="transfer_instructions_title">امسح الرمز لنقل الضمان</string>
+    <string name="transfer_instructions_desc">يمكن للمالك الجديد مسح الرمز لبدء طلب نقل ملكية الجهاز.</string>
+    <string name="transfer_qr_caption">رمز توضيحي للعرض فقط</string>
+    <string name="transfer_note">لا تنتقل الملكية إلا بعد تأكيدك وموافقة المالك الجديد.</string>
+    <string name="transfer_share_button">مشاركة الرابط</string>
+    <string name="transfer_phone_icon_desc">رمز الهاتف</string>
+    <string name="transfer_shield_icon_desc">رمز الأمان</string>
+    <string name="transfer_qr_icon_desc">رمز QR</string>
+    <string name="transfer_share_icon_desc">رمز المشاركة</string>
+
+    <!-- Care Schedule Screen -->
+    <string name="care_title">جدولة الصيانة الوقائية</string>
+    <string name="care_subtitle">عناية منتظمة لجهاز يدوم أطول</string>
+    <string name="care_reminder_heading">فترة تذكير الصيانة</string>
+    <string name="care_reminder_desc">اختر موعدًا دوريًا لنذكّرك بفحص جهازك والعناية به قبل ظهور الأعطال.</string>
+    <string name="care_interval_3_months">كل ٣ أشهر</string>
+    <string name="care_interval_6_months">كل ٦ أشهر</string>
+    <string name="care_alerts_title">تفعيل تنبيهات الصيانة</string>
+    <string name="care_alerts_status_on">مفعّلة · يمكنك إيقافها في أي وقت</string>
+    <string name="care_alerts_status_off">متوقفة</string>
+    <string name="care_next_reminder_caption">التذكير القادم</string>
+    <string name="care_save_button">حفظ الإعدادات</string>
+    <string name="care_chevron_desc">قائمة التذكير</string>
+    <string name="care_check_desc">محدد</string>
+    <string name="care_calendar_desc">رمز التقويم</string>
+</resources>
