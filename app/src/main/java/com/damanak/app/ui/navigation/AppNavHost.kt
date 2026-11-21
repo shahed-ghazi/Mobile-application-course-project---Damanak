@@ -1,5 +1,5 @@
 package com.damanak.app.ui.navigation
-
+import com.damanak.ui.AddEditWarrantyScreen
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
@@ -51,7 +51,9 @@ fun AppNavHost(
         }
 
         composable(Routes.ADD_EDIT) {
-            PlaceholderScreen(title = Routes.ADD_EDIT)
+            AddEditWarrantyScreen(
+                onBackClick = { navController.popBackStack() }
+            )
         }
 
         composable(Routes.DETAIL) { backStackEntry ->
