@@ -1,4 +1,4 @@
-package com.damanak.ui
+package com.damanak.app.ui.home
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -54,7 +54,8 @@ fun HomeScreen(
     warranties: List<WarrantyItem> = sampleWarranties(),
     isOffline: Boolean = false,
     onAddClick: () -> Unit = {},
-    onWarrantyClick: (WarrantyItem) -> Unit = {}
+    onWarrantyClick: (WarrantyItem) -> Unit = {},
+    onTabClick: (Int) -> Unit = {} // 1 = Search, 2 = Notifications, 3 = Profile
 ) {
     var selectedFilter by remember { mutableStateOf(HomeFilter.ALL) }
     var selectedTab by remember { mutableStateOf(0) }
@@ -99,19 +100,19 @@ fun HomeScreen(
                 )
                 NavigationBarItem(
                     selected = selectedTab == 1,
-                    onClick = { selectedTab = 1 },
+                    onClick = { onTabClick(1) },
                     icon = { Icon(Icons.Default.Search, contentDescription = "بحث") },
                     label = { Text("بحث", fontSize = 11.sp) }
                 )
                 NavigationBarItem(
                     selected = selectedTab == 2,
-                    onClick = { selectedTab = 2 },
+                    onClick = { onTabClick(2) },
                     icon = { Icon(Icons.Default.Notifications, contentDescription = "تنبيهات") },
                     label = { Text("تنبيهات", fontSize = 11.sp) }
                 )
                 NavigationBarItem(
                     selected = selectedTab == 3,
-                    onClick = { selectedTab = 3 },
+                    onClick = { onTabClick(3) },
                     icon = { Icon(Icons.Default.Person, contentDescription = "حسابي") },
                     label = { Text("حسابي", fontSize = 11.sp) }
                 )

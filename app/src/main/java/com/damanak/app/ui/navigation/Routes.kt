@@ -4,6 +4,7 @@ object Routes {
     const val SPLASH = "splash"
     const val ONBOARDING = "onboarding"
     const val AUTH = "auth"
+    const val SIGN_UP = "sign_up"
     const val HOME = "home"
     const val ADD_EDIT = "add_edit"
     const val DETAIL = "detail/{productId}"

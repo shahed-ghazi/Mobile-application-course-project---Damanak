@@ -1,13 +1,9 @@
-package com.example.ui
+package com.damanak.app.ui.profile
 
 
 
 
 
-import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -33,62 +29,6 @@ private val Bg = Color(0xFFF8F6F4)
 private val Beige = Color(0xFFECE7E1)
 private val Gray = Color(0xFF8D95A3)
 private val Red = Color(0xFFBD191D)
-
-class MainActivity : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContent {
-            MaterialTheme {
-                DamanakApp()
-            }
-        }
-    }
-}
-
-// Simple screen navigation
-@Composable
-fun DamanakApp() {
-    var screen by rememberSaveable {
-        mutableStateOf("profile")
-    }
-
-    var userName by rememberSaveable {
-        mutableStateOf("اسم المستخدم")
-    }
-
-    var userEmail by rememberSaveable {
-        mutableStateOf("user@example.com")
-    }
-
-    BackHandler(enabled = screen != "profile") {
-        screen = "profile"
-    }
-
-    when (screen) {
-        "edit" -> EditProfileScreen(
-            name = userName,
-            email = userEmail,
-            onBack = { screen = "profile" },
-            onSave = { newName, newEmail ->
-                userName = newName
-                userEmail = newEmail
-                screen = "profile"
-            }
-        )
-
-        "reset" -> ResetPasswordScreen(
-            email = userEmail,
-            onBack = { screen = "profile" }
-        )
-
-        else -> ProfileScreen(
-            name = userName,
-            email = userEmail,
-            onEdit = { screen = "edit" },
-            onReset = { screen = "reset" }
-        )
-    }
-}
 
 // Common avatar
 @Composable

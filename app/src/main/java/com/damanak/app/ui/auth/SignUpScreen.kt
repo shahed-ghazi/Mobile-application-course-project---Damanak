@@ -1,4 +1,4 @@
-package com.damanak.auth.ui.auth
+package com.damanak.app.ui.auth
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable

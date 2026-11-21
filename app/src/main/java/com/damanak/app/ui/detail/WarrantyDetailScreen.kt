@@ -1,4 +1,4 @@
-package com.damanak.ui
+package com.damanak.app.ui.detail
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Canvas
