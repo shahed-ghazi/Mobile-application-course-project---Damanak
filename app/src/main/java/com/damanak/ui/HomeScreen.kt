@@ -415,7 +415,7 @@ fun sampleWarranties(): List<WarrantyItem> {
         WarrantyItem("1", "آيفون 15 برو", "أبل ستور", today.minusMonths(1), today.plusMonths(11)),
         WarrantyItem("2", "غسالة LG", "إكسترا", today.minusYears(1), today.plusDays(18)),
         WarrantyItem("3", "شاشة سامسونج", "جرير", today.minusYears(2), today.minusDays(5)),
-        WarrantyItem("4",`لابتوب ديل XPS`, "مكتبة جرير", today, today.plusYears(2))
+        WarrantyItem("4","لابتوب ديل XPS", "مكتبة جرير", today, today.plusYears(2))
     )
 }
 
