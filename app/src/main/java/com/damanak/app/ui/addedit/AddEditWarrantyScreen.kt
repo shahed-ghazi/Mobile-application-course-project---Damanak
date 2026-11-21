@@ -1,5 +1,5 @@
 
-package com.damanak.ui
+package com.damanak.app.ui.addedit
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background

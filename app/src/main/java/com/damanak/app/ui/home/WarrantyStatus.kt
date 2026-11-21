@@ -1,4 +1,4 @@
-package com.damanak.ui
+package com.damanak.app.ui.home
 
 import java.time.LocalDate
 import java.time.temporal.ChronoUnit
